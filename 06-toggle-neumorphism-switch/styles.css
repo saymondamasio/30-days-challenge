@@ -20,6 +20,7 @@ body {
   border: 2px solid #dcdcdc;
   background-color: #e0e0e0;
   box-shadow: 7px 7px 23px #bebebe, -7px -7px 23px #fff;
+  /* remova o overflow para ver melhor a animação */
   overflow: hidden;
   border-radius: 60px;
 }
@@ -46,15 +47,6 @@ body {
   font-family: sans-serif;
 }
 
-input:checked + .slider:before {
-  background-color: white;
-  box-shadow: none;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
 .slider--0 {
   color: white;
   font-weight: 600;
@@ -62,6 +54,7 @@ input:focus + .slider {
 }
 
 .slider--1 div {
+  /* duração da transição */
   transition: 0.5s;
   position: absolute;
   width: 100%;
@@ -69,26 +62,21 @@ input:focus + .slider {
   left: 0;
 }
 
+/* Efeito portão abrindo starts */
 input:checked ~ .slider--1 div:first-child {
   transform: translateY(-100%);
+  /* Depois do input check demora 1s para começar a transição */
   transition-delay: 1s;
 }
 
 input:checked ~ .slider--1 div:last-child {
   transform: translateY(100%);
+  /* Depois do input check demora 1s para começar a transição */
   transition-delay: 1s;
 }
+/* Efeito portão abrindo ends */
 
-input:checked ~ .slider--2 {
-  transform: translateX(100%);
-  transition-delay: 0.5s;
-}
-
-input:checked ~ .slider--3 {
-  transform: translateX(-100%);
-  transition-delay: 0s;
-}
-
+/* Efeito portão fechando starts */
 .slider--1 div:first-child {
   transform: translateY(0);
   top: 0;
@@ -103,17 +91,30 @@ input:checked ~ .slider--3 {
   transition-delay: 0s;
   border: 1px solid #e0e0e0;
 }
+/* Efeito portão fechando ends */
+
+input:checked ~ .slider--2 {
+  /* vai para direita depois de 0.5s*/
+  transform: translateX(100%);
+  transition-delay: 0.5s;
+}
+
+input:checked ~ .slider--3 {
+  /* vai para esquerda imediatamente*/
+  transform: translateX(-100%);
+  transition-delay: 0s;
+}
 
 .slider--2 {
   background-color: #e6e6e6;
   transition-delay: 0.5s;
+  /* volta para o lugar inicial depois de 0.5s */
   transform: translateX(0);
-  border-left: 1px solid #d2d2d2;
 }
 
 .slider--3 {
   background-color: #d2d2d2;
   transition-delay: 1s;
+  /* volta para o lugar inicial depois de 1s */
   transform: translateX(0);
-  border-right: 1px solid #d2d2d2;
 }
