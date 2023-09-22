@@ -1,0 +1,56 @@
+
+
+.wrapper-lists {
+  display: flex;
+  gap: 30px;
+
+  max-width: 600px;
+  margin: 0 auto;
+
+  padding: 20px;
+}
+
+
+.list-dropzone {
+  padding: 20px;  
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  min-height: 30px;
+
+  background-color: rgb(230, 239, 239);
+
+
+  transition: 0.3s;
+
+  &.highlight {
+    background-color: rgb(249, 146, 123);
+  }
+
+  &.over {
+    background-color: rgb(96, 240, 111);
+  }
+
+  .item {
+    cursor: move;
+    padding: 5px;
+    list-style: none;
+    background-color: rgb(159, 162, 248);
+    border-radius: 5px;
+
+    height: min-content;
+
+    padding: 10px;
+
+    color: white;
+    text-align: center;
+
+    &.dragging {
+      cursor: move;
+      opacity: 0.3;
+    }
+  }
+}
